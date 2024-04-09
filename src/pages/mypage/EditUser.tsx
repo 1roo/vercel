@@ -22,7 +22,7 @@ const EditUser = () => {
             <Col>
               <Col>
                 <TitleSpan>아이디</TitleSpan>
-                <span>data.email</span>
+                <span>{data.email}</span>
               </Col>
               <Col>
                 <TitleSpan>이메일</TitleSpan>

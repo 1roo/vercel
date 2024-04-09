@@ -8,8 +8,8 @@ import { HiOutlineChatBubbleLeftRight } from 'react-icons/hi2';
 import { GoBell } from 'react-icons/go';
 import SearchBar from './SearchBar';
 import { useDebounce } from '@/hooks/useDebounce';
+import useLoginStore from '@/store/LoginState';
 // import CreatePostModal from '../modal/CreatePostModal';
-import useAuthStore from '@/store/AuthState';
 const profileImg = '/assets/images/basicImg.png';
 
 const Header: React.FC = () => {
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
   const [address, setAddress] = useState<string>('');
   const [isSearchbarOpen, setSearchbarOpen] = useState<boolean>(false);
   // const [isAddPostModalOpen, setIsAddPostModalOpen] = useState<boolean>(false);
-  const useIsLoggedIn = useAuthStore((state) => state.isLoggedIn);
+  const useIsLogIn = useLoginStore((state) => state.isLogIn);
 
   const debouncedAddress = useDebounce(address, 300);
 
@@ -56,7 +56,7 @@ const Header: React.FC = () => {
             <SearchBar address={address} $isOpen={isSearchbarOpen} />
           </SearchDiv>
 
-          {useIsLoggedIn ? (
+          {useIsLogIn ? (
             <Items style={{ width: '150px' }}>
               <HiOutlineChatBubbleLeftRight
                 style={{
