@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import Map from './Map';
 import News from './news/News';
-import Score from './Score';
+// import Score from './Score';
 import { BottomArrowIcon } from '@/utils/icons/icons';
 
 // 반응형 구조 할 예정...
@@ -43,7 +43,7 @@ const MainLayout = () => {
           </NewsCategory>
         </ThreeComponentBox>
       </CategoryBox>
-      {clickedCategory === 'score' && <Score />}
+      {/* {clickedCategory === 'score' && <Score />} */}
       {clickedCategory === 'map' && <Map />}
       {clickedCategory === 'feeds' && (
         <FeedsBox>
