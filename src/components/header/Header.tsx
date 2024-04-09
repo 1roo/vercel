@@ -18,7 +18,7 @@ const Header: React.FC = () => {
   const [address, setAddress] = useState<string>('');
   const [isSearchbarOpen, setSearchbarOpen] = useState<boolean>(false);
   // const [isAddPostModalOpen, setIsAddPostModalOpen] = useState<boolean>(false);
-  const useIsLogIn = useLoginStore((state) => state.isLogIn);
+  const isLogIn = useLoginStore((state) => state.isLogIn);
 
   const debouncedAddress = useDebounce(address, 300);
 
@@ -56,7 +56,7 @@ const Header: React.FC = () => {
             <SearchBar address={address} $isOpen={isSearchbarOpen} />
           </SearchDiv>
 
-          {useIsLogIn ? (
+          {isLogIn ? ( // 변수 이름 수정
             <Items style={{ width: '150px' }}>
               <HiOutlineChatBubbleLeftRight
                 style={{
