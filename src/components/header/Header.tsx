@@ -8,7 +8,7 @@ import { HiOutlineChatBubbleLeftRight } from 'react-icons/hi2';
 import { GoBell } from 'react-icons/go';
 import SearchBar from './SearchBar';
 import { useDebounce } from '@/hooks/useDebounce';
-import CreatePostModal from '../modal/CreatePostModal';
+// import CreatePostModal from '../modal/CreatePostModal';
 import useAuthStore from '@/store/AuthState';
 const profileImg = '/assets/images/basicImg.png';
 
@@ -17,7 +17,7 @@ const Header: React.FC = () => {
   const [modalType, setModalType] = useState<string>('');
   const [address, setAddress] = useState<string>('');
   const [isSearchbarOpen, setSearchbarOpen] = useState<boolean>(false);
-  const [isAddPostModalOpen, setIsAddPostModalOpen] = useState<boolean>(false);
+  // const [isAddPostModalOpen, setIsAddPostModalOpen] = useState<boolean>(false);
   const useIsLoggedIn = useAuthStore((state) => state.isLoggedIn);
 
   const debouncedAddress = useDebounce(address, 300);
@@ -85,15 +85,15 @@ const Header: React.FC = () => {
               <HeaderSpan onClick={handleSignup}>회원가입</HeaderSpan>
             </Items>
           )}
-          <WriteButton onClick={() => setIsAddPostModalOpen(true)}>
-            <HeaderSpan style={{ margin: '0', color: 'white' }}>
-              글쓰기
-            </HeaderSpan>
-            <FaRegEdit style={{ color: 'white' }} />
-          </WriteButton>
-          {isAddPostModalOpen && (
-            <CreatePostModal setIsAddPostModalOpen={setIsAddPostModalOpen} />
-          )}
+          {/* <WriteButton onClick={() => setIsAddPostModalOpen(true)}> */}
+          <HeaderSpan style={{ margin: '0', color: 'white' }}>
+            글쓰기
+          </HeaderSpan>
+          <FaRegEdit style={{ color: 'white' }} />
+          {/* </WriteButton> */}
+          {/* {isAddPostModalOpen && (
+            // <CreatePostModal setIsAddPostModalOpen={setIsAddPostModalOpen} />
+          )} */}
         </Items>
       </HeaderLayout>
       {isModalOpen && (
@@ -166,15 +166,15 @@ const HeaderSpan = styled.span`
   cursor: pointer;
 `;
 
-const WriteButton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
-  background-color: gray;
-  padding: 2px 5px;
-  cursor: pointer;
-`;
+// const WriteButton = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   border-radius: 15px;
+//   background-color: gray;
+//   padding: 2px 5px;
+//   cursor: pointer;
+// `;
 
 const Profile = styled.div`
   width: 40px;
